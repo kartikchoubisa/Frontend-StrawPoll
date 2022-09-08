@@ -1,0 +1,17 @@
+.mainDashContainer {
+    width: 83%;
+    display: flex;
+    align-items: center;
+    margin: 36px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.introBarContainer {
+    display: flex;
+    width: 100%;
+}
+.dataBarContainer {
+    display: flex;
+    width: 100%;
+    
+}

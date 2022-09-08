@@ -4,9 +4,9 @@ import MainDash from "./MainDash.js"
 
 function App() {
     return (
-        <div>
-            <SideNav />
-            <MainDash />
+        <div className="container">
+            <SideNav className="sideContainer"/>
+            <MainDash className="mainContainer" />
         </div>
     )
 }

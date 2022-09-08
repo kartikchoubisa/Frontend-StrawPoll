@@ -1,0 +1,35 @@
+.sideNavContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    justify-content: space-between;
+    width: 17%;
+}
+.logoContainer{
+    color:#E5007A;
+    margin-top: 33px;
+    font-size: 28px;
+    height: 15%;
+}
+.sideOptionsContainer{
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    
+    width: 80%;
+}
+.optionContainer{
+    color: #1E1E28;
+    background-color: white;
+    padding:5px     ;  
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border-radius: 10px;
+    font-size: 14px;
+    height:36px;
+    font-weight: 600;
+    
+
+}
