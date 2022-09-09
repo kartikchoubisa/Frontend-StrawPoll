@@ -1,0 +1,66 @@
+.proposalCardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 24px;
+    height: 140px;
+    width: 328px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    
+}
+.porposalCardDataContainer {
+    height: 65%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.proposalCircleContainer {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    width: 48px;
+    border-radius: 24px;
+    background-color: #e5007a;
+}
+.proposalAuthorDataContainer {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 12px;;
+}
+.proposalTitleContainer {
+    display: flex;
+    align-items: center;
+    height: 80%;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.proposalAuthorContainer {
+    display: flex;
+    align-items: center;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 400;
+}
+.proposalReactionsContainer {
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.proposalReactionContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 16px;
+    
+}

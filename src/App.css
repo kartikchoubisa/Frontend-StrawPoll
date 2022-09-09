@@ -4,6 +4,19 @@
     height: 100vh;
     overflow: hidden;
     justify-content: space-between;
+    background-color: #fafafa;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #1E1E28;
+    border-radius: 100vh;
+
+}
+::-webkit-scrollbar-thumb {
+    background: #E5007A;
+    border-radius: 100vh;
 }
 .sideContainer {
     /* width: 17.5%; */

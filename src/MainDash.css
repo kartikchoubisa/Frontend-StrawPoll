@@ -2,16 +2,32 @@
     width: 83%;
     display: flex;
     align-items: center;
-    margin: 36px;
+    margin:36px 0px 36px 36px;
+
     flex-direction: column;
     justify-content: space-between;
+    overflow-y: scroll;
+    scrollbar-color: green;
+    /* background-color: green; */
 }
+
+
+
 .introBarContainer {
     display: flex;
     width: 100%;
+    box-sizing: border-box;
+    padding-right: 24px;
 }
 .dataBarContainer {
     display: flex;
     width: 100%;
-    
+    box-sizing: border-box;
+    padding-right: 24px;
+}
+.proposalBarContainer {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 24px;
 }
