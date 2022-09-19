@@ -1,28 +1,47 @@
-.proposalBarContainer{
+.proposalBarContainer {
     height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width:100%;
+    width: 100%;
     height: 100%;
-    
-    
+
     /* align-items: center; */
-    
-    
 }
-.titleProposalContainer{
+.titleProposalContainer {
     display: flex;
     align-items: center;
-    height:10%;
+    justify-content: space-between;
+    height: 10%;
+    margin-top: 32px;
+    width: 95%;
+}
+.titleProposalTopContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 24px;
     font-weight: 600;
-    margin-top: 32px;
 }
-.proposalCardsContainer{
+.addProposalContainer {
+    width: 200px;
+    background-color: #e5007a;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+    justify-content: space-around;
+    border-radius: 10px;
+    height: 48px;
+    font-weight: 600;
+}
+.plusContainer {
+    margin-left: 24px;
+}
+.proposalCardsContainer {
     margin-top: 32px;
     display: flex;
     flex-wrap: wrap;
-    /* overflow-y: scroll; */
-    height:90%;
+    height: 90%;
 }
+

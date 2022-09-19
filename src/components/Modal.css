@@ -1,0 +1,23 @@
+.modalStyleContainer {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+.boxStyleContainer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    height: 100%;
+    width: 100%;
+    padding-top: 48px;
+    padding-left: 256px;
+    box-sizing: border-box;
+}
+.editorContainer {
+    width: 80%;
+}

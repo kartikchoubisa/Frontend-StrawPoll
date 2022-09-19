@@ -1,13 +1,46 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import "./IntroBar.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBell } from "@fortawesome/free-solid-svg-icons"
+import { faBell, faCircle } from "@fortawesome/free-solid-svg-icons"
+import { useMoralis } from "react-moralis"
 
 function IntroBar() {
+    const {
+        enableWeb3,
+        account,
+        isWeb3Enabled,
+        Moralis,
+        deactivateWeb3,
+        isWeb3EnableLoading,
+    } = useMoralis()
+    useEffect(() => {
+        if (isWeb3Enabled) return
+        if (typeof window !== "undefined") {
+            if (window.localStorage.getItem("connected")) {
+                enableWeb3()
+            }
+        }
+    }, [isWeb3Enabled])
+    useEffect(() => {
+        Moralis.onAccountChanged((account) => {
+            if (account == null) {
+                window.localStorage.removeItem("connected")
+                deactivateWeb3()
+            }
+        })
+    }, [])
+
     return (
         <div className="introBarContainer">
             <div className="welcomeContainer">
-                <div className="headingContainer">Hi, Skylar</div>
+                {account ? (
+                    <div className="headingContainer">
+                        Hi, {account.slice(0, 6)}...
+                        {account.slice(account.length - 4)}{" "}
+                    </div>
+                ) : (
+                    <div className="headingContainer">Hey,</div>
+                )}
                 <div className="descContainer">
                     Welcome, check the lastest proposals this week
                 </div>
@@ -19,7 +52,32 @@ function IntroBar() {
                 <div className="profilePicContainer"></div>
             </div>
             <div className="connectButtonContainer">
-                <div className="connectWalletContainer">Connect Wallet</div>
+                {account ? (
+                    <div className="connectedWalletContainer">
+                        <FontAwesomeIcon
+                            icon={faCircle}
+                            width={8}
+                            className="indicatorContainer"
+                        />
+                        <div>Connected</div>
+                    </div>
+                ) : (
+                    <button
+                        className="connectWalletContainer"
+                        onClick={async () => {
+                            await enableWeb3()
+                            if (typeof window !== "undefined") {
+                                window.localStorage.setItem(
+                                    "connected",
+                                    "injected"
+                                )
+                            }
+                            }}
+                            disabled ={isWeb3EnableLoading}
+                    >
+                        Connect to Metamask
+                    </button>
+                )}
             </div>
         </div>
     )

@@ -45,21 +45,38 @@
     height: 48px;
     width: 48px;
     border-radius: 24px;
-    background-color: #E5007A;
+    background-color: #e5007a;
 }
-.connectButtonContainer{
+.connectButtonContainer {
     display: flex;
-    justify-content:flex-end;
+    justify-content: flex-end;
     align-items: center;
     width: 35%;
 }
-.connectWalletContainer{
+.connectWalletContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 48px;
     border-radius: 10px;
-    width:60%;
-    background-color: #E5007A;
+    width: 60%;
+    background-color: #e5007a;
     color: white;
+}
+.connectedWalletContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    /* border-radius: 10px; */
+    box-sizing: border-box;
+    padding: 16px;
+    width: 60%;
+    color: #e5007a;
+    /* border-color: #e5007a; */
+    /* border-width: 2px;
+    border-style: solid; */
+}
+.indicatorContainer{
+    margin-right: 6px;
 }
