@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBell, faCircle } from "@fortawesome/free-solid-svg-icons"
 import { useMoralis } from "react-moralis"
 
-function IntroBar() {
+function IntroBar({ userAddr, setUserAddr }) {
     const {
         enableWeb3,
         account,
@@ -18,9 +18,15 @@ function IntroBar() {
         if (typeof window !== "undefined") {
             if (window.localStorage.getItem("connected")) {
                 enableWeb3()
+                setUserAddr(account)
+                // console.log(userAddr)
             }
         }
     }, [isWeb3Enabled])
+    useEffect(() => {
+        setUserAddr(account)
+        console.log(userAddr)
+    }, [account])
     useEffect(() => {
         Moralis.onAccountChanged((account) => {
             if (account == null) {
@@ -72,8 +78,10 @@ function IntroBar() {
                                     "injected"
                                 )
                             }
-                            }}
-                            disabled ={isWeb3EnableLoading}
+                            setUserAddr(account)
+                            console.log(userAddr)
+                        }}
+                        disabled={isWeb3EnableLoading}
                     >
                         Connect to Metamask
                     </button>

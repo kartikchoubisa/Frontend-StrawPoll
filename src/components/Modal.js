@@ -10,9 +10,9 @@ import MDEditor from "@uiw/react-md-editor"
 import axios from "axios"
 import dataConst from "../constants/data.json"
 
-function ModalTab({ open, handleClose }) {
-    const [address, setAddress] = React.useState("")
-    const [textUrl, setTextUrl] = React.useState("testing..")
+function ModalTab({ userAddr, open, handleClose }) {
+    const [title, setTitle] = React.useState("")
+    const [textUrl, setTextUrl] = React.useState("")
     const [markDownValue, setMarkDownValue] = React.useState(
         "type proposal here ...."
     )
@@ -22,11 +22,11 @@ function ModalTab({ open, handleClose }) {
         abi: abi,
         contractAddress: contractAddress,
         functionName: "addProposal",
-        params: { _uri: textUrl, _proposer: address, _name: "hi there" },
+        params: { _uri: textUrl, _proposer: userAddr, _name: title },
     })
 
     const handleClick = async () => {
-        console.log(address)
+        console.log(userAddr)
         console.log(markDownValue)
         console.log("entered...")
 
@@ -34,7 +34,7 @@ function ModalTab({ open, handleClose }) {
             const resJson = await axios({
                 method: "post",
                 url: "https://api.pinata.cloud/pinning/pinJsonToIPFS",
-                data: { address: address, markDownData: markDownValue },
+                data: { address: userAddr, markDownData: markDownValue },
                 headers: {
                     pinata_api_key: dataConst.pinataApi,
                     pinata_secret_api_key: dataConst.pinataApiSecret,
@@ -43,17 +43,22 @@ function ModalTab({ open, handleClose }) {
 
             console.log("final ", `ipfs://${resJson.data.IpfsHash}`)
             setTextUrl(`ipfs://${resJson.data.IpfsHash}`)
-            await addProposal()
+            if (textUrl.length > 0) await addProposal()
             console.log("proposal added... refresh...")
         } catch {}
     }
 
-    const handleAddressChange = (event) => {
-        setAddress(event.target.value)
+    const handleTitleChange = (event) => {
+        setTitle(event.target.value)
     }
 
     return (
-        <Modal open={open} onClose={handleClose}>
+        <Modal
+            open={open}
+            onClose={handleClose}
+            radius="10px"
+            className="modalContainer"
+        >
             <div className="modalStyleContainer">
                 <Box
                     className="boxStyleContainer"
@@ -61,15 +66,23 @@ function ModalTab({ open, handleClose }) {
                     noValidate
                     autoComplete="off"
                 >
+                    <div>Have a new idea, let everyone know!</div>
+                    <div className="proposerAddressContainer">
+                        <div>Proposer's Address :</div> <div>{userAddr}</div>
+                    </div>
                     <TextField
                         id="outlined-name"
-                        label="Proposer's Address"
-                        value={address}
-                        onChange={handleAddressChange}
+                        label="Proposal's Title"
+                        value={title}
+                        onChange={handleTitleChange}
                         sx={{
-                            width: { sm: 400, md: 600 },
-                            margin: { sm: 2, md: 2 },
+                            bgcolor: "white",
+                            marginTop: "16px",
+                            marginBottom: "16px",
+                            width: { sm: 800},
+                            
                         }}
+                        
                     />
                     <MDEditor
                         value={markDownValue}

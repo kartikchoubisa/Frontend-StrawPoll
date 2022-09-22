@@ -10,7 +10,7 @@ import ModalTab from "./Modal"
 
 import { ApiPromise, WsProvider } from "@polkadot/api"
 
-function ProposalBar() {
+function ProposalBar({userAddr}) {
     const [proposals, setProposals] = useState([])
     const [open, setOpen] = React.useState(false)
     const contractAddress = contractAddressData.contractAddress
@@ -31,11 +31,11 @@ function ProposalBar() {
         async function updateUi() {
             const temp = await viewAllProposals()
             // const api = await ApiPromise.create();
-            const wsProvider = new WsProvider("wss://rpc.polkadot.io")
-            const api = await ApiPromise.create({ provider: wsProvider })
-            const txHash = api.tx.system
-                .remarkWithEvent("anighma")
-                .method.hash.toHex()
+            // const wsProvider = new WsProvider("wss://rpc.polkadot.io")
+            // const api = await ApiPromise.create({ provider: wsProvider })
+            // const txHash = api.tx.system
+            //     .remarkWithEvent("anighma")
+            //     .method.hash.toHex()
             // await console.log(open);
 
             setProposals([])
@@ -87,7 +87,7 @@ function ProposalBar() {
                     />
                 </div>
             </div>
-            <ModalTab open={open} handleClose={handleClose} />
+            <ModalTab userAddr={ userAddr} open={open} handleClose={handleClose} />
             <div className="proposalCardsContainer">{proposals}</div>
             
         </div>

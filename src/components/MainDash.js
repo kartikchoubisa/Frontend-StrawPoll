@@ -11,12 +11,13 @@ import "./MainDash.css"
 const strawPollAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
 function MainDash() {
     // const { enableWeb3 } = useMoralis()//a function that we get from hook useMoralis
+    const [userAddr, setUserAddr] = useState();
 
     return (
         <div className="mainDashContainer">
-            <div className="introBarContainer"><IntroBar/></div>
+            <div className="introBarContainer"><IntroBar userAddr={ userAddr} setUserAddr = {setUserAddr} /></div>
             <div className="dataBarContainer"><DataBar/></div>
-            <div className="proposalBarContainer"><ProposalBar/></div>
+            <div className="proposalBarContainer"><ProposalBar userAddr={userAddr} /></div>
         </div>
     )
 }

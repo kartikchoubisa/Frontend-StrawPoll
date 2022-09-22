@@ -3,27 +3,32 @@ import "./DataBar.css"
 import DataCard from "./DataCard"
 import { useMoralis, useWeb3Contract } from "react-moralis"
 import abi from "../abi.json"
+import contractAddressData from "../constants/contractAddress.json"
+
 
 function DataBar() {
     const [topAddr, setTopAddr] = useState()
     const [topName, setTopName] = useState("")
     const [card, setCard] = useState([])
+    const contractAddress = contractAddressData.contractAddress
+
 
     const { isWeb3Enabled } = useMoralis()
 
     const { runContractFunction: topContract } = useWeb3Contract({
         abi: abi,
-        contractAddress: "0x5F5A7557EBB0C8dC9507D13944eD0b7F61dEd58C",
+        contractAddress: contractAddress,
         functionName: "topContract",
         params: {},
     })
     async function updateUi() {
-        const topCont = await topContract()
+        
+        const topCont = await topContract()        
         const topA = await topCont.uri
         const topN = await topCont.name
         setCard([])
         console.log("hello")
-        // await topCont.uri
+        
         console.log(topCont.uri)
         setTopName(topN)
         setTopAddr(topA)
@@ -34,13 +39,14 @@ function DataBar() {
                 Title={"This Weeks Top Proposal"}
                 Data={topN}
                 TopContractAddress={topA}
-            />,
+            />, 
+            
         ])
     }
 
     useEffect(() => {
         updateUi()
-    }, [])
+    }, [isWeb3Enabled])
     return (
         <div className="dataBarContainer">
             <div className="tempContainer">

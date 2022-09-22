@@ -1,3 +1,16 @@
+.modalContainer{
+        /* border-style: none;
+        border-width: 0px; */
+    border-radius: 10px;
+    margin:0px;
+    color:white;
+}
+.proposerAddressContainer{
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    align-items: center;
+}
 .modalStyleContainer {
     width: 80%;
     position: absolute;
@@ -5,8 +18,14 @@
     left: 50%;
     height: 80%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background-color: #1E1E28;    
+    border-style: none;
+    border-radius:none;
+    border-width: 0px;
+    margin:0px;
+    padding:0px;
 }
+
 .boxStyleContainer {
     display: flex;
     flex-direction: column;
