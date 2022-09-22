@@ -62,6 +62,7 @@ function ModalTab({ userAddr, open, handleClose }) {
             onClose={handleClose}
             radius="10px"
             className="modalContainer"
+            
         >
             <div className="modalStyleContainer">
                 <Box
@@ -70,7 +71,8 @@ function ModalTab({ userAddr, open, handleClose }) {
                     noValidate
                     autoComplete="off"
                 >
-                    <div>Have a new idea, let everyone know!</div>
+                    <div className="modalHeadMessage1">Have a new idea?</div>
+                    {/* <div className="modalHeadMessage2">Let everyone know </div> */}
                     <div className="proposerAddressContainer">
                         <div>Proposer's Address :</div> <div>{userAddr}</div>
                     </div>
@@ -91,8 +93,8 @@ function ModalTab({ userAddr, open, handleClose }) {
                         onChange={setMarkDownValue}
                         className="editorContainer"
                     ></MDEditor>
-
-                    <div onClick={handleClick}>Submit</div>
+                    <div className="buttonModalContainer" onClick={handleClick}>Submit</div>
+                    
                     {textUrl}
                 </Box>
             </div>
