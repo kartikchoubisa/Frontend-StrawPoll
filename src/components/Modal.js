@@ -40,10 +40,13 @@ function ModalTab({ userAddr, open, handleClose }) {
                     pinata_secret_api_key: dataConst.pinataApiSecret,
                 },
             })
-
-            console.log("final ", `ipfs://${resJson.data.IpfsHash}`)
-            setTextUrl(`ipfs://${resJson.data.IpfsHash}`)
+            const temp = resJson.data.IpfsHash
+            console.log("final ", `ipfs://${temp}`)
+            setTextUrl(`ipfs://${temp}`)
             if (textUrl.length > 0) await addProposal()
+            else {
+                console.log("bhai yeh kya kar raha hai")
+            }
             console.log("proposal added... refresh...")
         } catch {}
     }
@@ -79,10 +82,8 @@ function ModalTab({ userAddr, open, handleClose }) {
                             bgcolor: "white",
                             marginTop: "16px",
                             marginBottom: "16px",
-                            width: { sm: 800},
-                            
+                            width: { sm: 800 },
                         }}
-                        
                     />
                     <MDEditor
                         value={markDownValue}
