@@ -5,6 +5,7 @@ import { useMoralis, useWeb3Contract } from "react-moralis";
 import abi from "../abi.json"
 import contractAddressData from "../constants/contractAddress.json"
 
+
  
 
 function Proposal({ url }) {

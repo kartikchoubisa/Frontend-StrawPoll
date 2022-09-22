@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { ethers, BigNumber } from "ethers"
-import strawPoll from "./StrawPoll.json"
-import IntroBar from "./components/IntroBar"
-import DataBar from "./components/DataBar"
-import ProposalBar from "./components/ProposalBar"
+// import strawPoll from "../StrawPoll.json"
+import IntroBar from "./IntroBar"
+import DataBar from "./DataBar"
+import ProposalBar from "./ProposalBar"
 
 import "./MainDash.css"
 // import { useMoralis } from "react-moralis"

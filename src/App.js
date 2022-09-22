@@ -1,6 +1,6 @@
 import "./App.css"
-import SideNav from "./SideNav.js"
-import MainDash from "./MainDash.js"
+import SideNav from "./components/SideNav"
+import MainDash from "./components/MainDash"
 import Proposal from "./pages/Proposal.jsx"
 import { MoralisProvider } from "react-moralis"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -9,10 +9,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
-    function Layout() {
+    function HomePage() {
         return (
             <div className="container">
                 <SideNav className="sideContainer" />
+                <MainDash className="mainContainer" />
+            </div>)
+    }
+
+    function ProposalPage() {
+        return (
+            <div className="container">
+                <SideNav className="sideContainer" />
+                <Proposal url="testing..." className="proposalContainer" />
             </div>)
     }
 
@@ -22,13 +31,8 @@ function App() {
             <BrowserRouter>
 
                 <Routes>
-                    {/* <Route path="/" element={<Layout/>} > */}
-                    {/* <Route index element = { <MainDash />} /> */}
-                    {/* <Route path="proposal1" element = {<Proposal />} /> */}
-                    {/* </Route> */}
-                    <Route path="/" element={<Proposal url={"url"} />} />
-
-
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/proposal" element={<ProposalPage />} />
                 </Routes>
             </BrowserRouter>
         </MoralisProvider>
