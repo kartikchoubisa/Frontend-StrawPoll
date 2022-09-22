@@ -1,6 +1,6 @@
 import "./App.css"
-import SideNav from "./SideNav.js"
-import MainDash from "./MainDash.js"
+import SideNav from "./components/SideNav"
+import MainDash from "./components/MainDash"
 import Proposal from "./pages/Proposal.jsx"
 import { MoralisProvider } from "react-moralis"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
