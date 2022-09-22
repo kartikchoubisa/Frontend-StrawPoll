@@ -16,7 +16,7 @@ function ModalTab({ userAddr, open, handleClose }) {
     const [markDownValue, setMarkDownValue] = React.useState(
         "type proposal here ...."
     )
-    const testData = "hi there"
+    
     const contractAddress = contractAddressData.contractAddress
     const { runContractFunction: addProposal } = useWeb3Contract({
         abi: abi,
@@ -70,7 +70,7 @@ function ModalTab({ userAddr, open, handleClose }) {
                     noValidate
                     autoComplete="off"
                 >
-                    <div>Have a new idea, let everyone know!</div>
+                    <div className="modalTitleContainer">Have a new idea, let everyone know!</div>
                     <div className="proposerAddressContainer">
                         <div>Proposer's Address :</div> <div>{userAddr}</div>
                     </div>
@@ -80,7 +80,7 @@ function ModalTab({ userAddr, open, handleClose }) {
                         value={title}
                         onChange={handleTitleChange}
                         sx={{
-                            bgcolor: "white",
+                            bgcolor: "#1E1E28",
                             marginTop: "16px",
                             marginBottom: "16px",
                             width: { sm: 800 },

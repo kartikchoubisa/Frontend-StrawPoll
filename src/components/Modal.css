@@ -1,9 +1,18 @@
+.modalTitleContainer{
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 36px;
+    color: #E5007A;
+    
+    
+
+}
 .modalContainer{
         /* border-style: none;
         border-width: 0px; */
     border-radius: 10px;
     margin:0px;
-    color:white;
+    color:white !important; 
 }
 .proposerAddressContainer{
     display: flex;
