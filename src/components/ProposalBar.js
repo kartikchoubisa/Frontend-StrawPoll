@@ -12,7 +12,7 @@ import { ApiPromise, WsProvider } from "@polkadot/api"
 
 function ProposalBar() {
     const [proposals, setProposals] = useState([])
-    const [open, setOpen] = React.useState(true)
+    const [open, setOpen] = React.useState(false)
     const contractAddress = contractAddressData.contractAddress
     const temp = []
     const { chainId, isWeb3Enabled } = useMoralis()

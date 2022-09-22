@@ -1,6 +1,6 @@
 import "./App.css"
-import SideNav from "./SideNav.js"
-import MainDash from "./MainDash.js"
+import SideNav from "./components/SideNav"
+import MainDash from "./components/MainDash"
 // import { MoralisProvider } from "react-moralis"
 
 function App() {

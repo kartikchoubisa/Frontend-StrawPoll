@@ -17,29 +17,30 @@ function DataBar() {
         functionName: "topContract",
         params: {},
     })
+    async function updateUi() {
+        const topCont = await topContract()
+        const topA = await topCont.uri
+        const topN = await topCont.name
+        setCard([])
+        console.log("hello")
+        // await topCont.uri
+        console.log(topCont.uri)
+        setTopName(topN)
+        setTopAddr(topA)
+        console.log(topName)
+        setCard((oldArray) => [
+            ...oldArray,
+            <DataCard
+                Title={"This Weeks Top Proposal"}
+                Data={topN}
+                TopContractAddress={topA}
+            />,
+        ])
+    }
+
     useEffect(() => {
-        async function updateUi() {
-            const topCont = await topContract()
-            const topA = await topCont.uri
-            const topN = await topCont.name
-            setCard([])
-            console.log()
-            // await topCont.uri
-            console.log(topCont.name)
-            setTopName(topN)
-            setTopAddr(topA)
-            console.log(topName)
-            setCard((oldArray) => [
-                ...oldArray,
-                <DataCard
-                    Title={"This Weeks Top Proposal"}
-                    Data={topN}
-                    TopContractAddress={topA}
-                />,
-            ])
-        }
         updateUi()
-    }, [isWeb3Enabled])
+    }, [])
     return (
         <div className="dataBarContainer">
             <div className="tempContainer">
