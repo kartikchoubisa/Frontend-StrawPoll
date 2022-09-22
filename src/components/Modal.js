@@ -40,7 +40,8 @@ function ModalTab({ userAddr, open, handleClose }) {
                     pinata_secret_api_key: dataConst.pinataApiSecret,
                 },
             })
-            const temp = resJson.data.IpfsHash
+
+            const temp = await resJson.data.IpfsHash
             console.log("final ", `ipfs://${temp}`)
             setTextUrl(`ipfs://${temp}`)
             if (textUrl.length > 0) await addProposal()
