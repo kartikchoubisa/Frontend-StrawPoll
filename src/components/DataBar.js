@@ -5,13 +5,11 @@ import { useMoralis, useWeb3Contract } from "react-moralis"
 import abi from "../abi.json"
 import contractAddressData from "../constants/contractAddress.json"
 
-
 function DataBar() {
     const [topAddr, setTopAddr] = useState()
     const [topName, setTopName] = useState("")
     const [card, setCard] = useState([])
     const contractAddress = contractAddressData.contractAddress
-
 
     const { isWeb3Enabled } = useMoralis()
 
@@ -21,26 +19,46 @@ function DataBar() {
         functionName: "topContract",
         params: {},
     })
+    const { runContractFunction: getPriceGLMRToDollar } = useWeb3Contract({
+        abi: abi,
+        contractAddress: contractAddress,
+        functionName: "getPriceGLMRToDollar",
+        params: {},
+    })
     async function updateUi() {
-        
-        const topCont = await topContract()        
+        const topCont = await topContract()
+        const glmrToUsd = await getPriceGLMRToDollar()
         const topA = await topCont.uri
         const topN = await topCont.name
         setCard([])
         console.log("hello")
-        
+        let weekday = new Date().getDay()
+        console.log(weekday)
+        let dayLeft = 7 - weekday;
+
         console.log(topCont.uri)
         setTopName(topN)
         setTopAddr(topA)
         console.log(topName)
         setCard((oldArray) => [
             ...oldArray,
-            <DataCard
-                Title={"This Weeks Top Proposal"}
-                Data={topN}
-                TopContractAddress={topA}
-            />, 
-            
+            [
+                <DataCard
+                    Title={"This Weeks Top Proposal"}
+                    Data={topN}
+                    TopContractAddress={topA}
+                />,
+                <DataCard
+                    Title={"GLMR Price"}
+                    Data={`$ ${glmrToUsd}`}
+                    TopContractAddress={"http://glmrtousdconverter"}
+                />,
+                <DataCard
+                    Title={"Push for Governance in"}
+                    Data={`${dayLeft} days`}
+                    TopContractAddress={"http://glmrtousdconverter"}
+                />,
+            ],
         ])
     }
 

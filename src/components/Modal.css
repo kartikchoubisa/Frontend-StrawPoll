@@ -1,15 +1,32 @@
+.modalHeadMessage1{
+    font-size: 48px;
+    color:#e5007a; 
+    font-weight: 600;   
+    margin-bottom: 48px;
+    
+}
+.modalHeadMessage2{
+    font-size: 16px;
+    font-weight: 300;   
+    padding-left:2px;
+    
+
+    
+}
 .modalContainer{
         /* border-style: none;
         border-width: 0px; */
     border-radius: 10px;
     margin:0px;
-    color:white;
+    color:#1E1E28;
 }
 .proposerAddressContainer{
     display: flex;
     width: 60%;
     justify-content: space-between;
     align-items: center;
+
+    
 }
 .modalStyleContainer {
     width: 80%;
@@ -19,11 +36,14 @@
     height: 80%;
     transform: translate(-50%, -50%);
     background-color: #1E1E28;    
-    border-style: none;
-    border-radius:none;
+    border-style: solid;
+    border-radius:10px;
     border-width: 0px;
+    border-color: #1E1E28;
     margin:0px;
     padding:0px;
+    outline: 0px !important;
+
 }
 
 .boxStyleContainer {
@@ -38,5 +58,24 @@
     box-sizing: border-box;
 }
 .editorContainer {
-    width: 80%;
+    width: 82.1%;
 }
+
+.buttonModalContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    border-radius: 10px;
+    width: 30%;
+    background-color: #e5007a;
+    color: white;
+    margin-top: 16px;
+    margin-left:52.1%;
+  }
+  
+  .buttonModalContainer:hover {
+    background-color:#e5007a;
+    color: #1E1E28;
+    /* SET COLOR IN BLACK */
+  }
