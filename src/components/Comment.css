@@ -7,9 +7,9 @@
 }
 
 /* select all children of commentContainer */
-.commentContainer > * {
+/* .commentContainer > * {
     border: 1px solid black;
-}
+} */
 
 .commentLEFT {
     display: flex;

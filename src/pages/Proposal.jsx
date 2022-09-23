@@ -1,16 +1,22 @@
 import React from "react"
 import Discussion from "../components/Discussion"
 import { useState, useEffect } from "react"
-import { useMoralis, useWeb3Contract } from "react-moralis";
+import { useMoralis, useWeb3Contract } from "react-moralis"
 import abi from "../abi.json"
 import contractAddressData from "../constants/contractAddress.json"
-
-
- 
+import axios from "axios"
+import dataConst from "../constants/data.json"
+import "./Proposal.css"
 
 function Proposal({ url }) {
-    const [content, setContent] = useState("")
-    const [proposalDetailsOnContract, setProposalDetailsOnContract] = useState([])
+    const [proposalDetails, setProposalDetails] = useState({
+        uri: "",
+        name: "",
+        proposer: 0,
+        upVotes: 0,
+        downVotes: 0,
+        markDownData: "",
+    })
     const { Moralis, enableWeb3, isWeb3Enabled } = useMoralis()
 
     const contractAddress = contractAddressData.contractAddress
@@ -19,18 +25,51 @@ function Proposal({ url }) {
         contractAddress: contractAddress,
         functionName: "proposalDetail",
         // update to use uri from component
-        params: {_uri: "xyz"},
+        params: { _uri: "xyz" },
     })
 
-    async function updateProposalDetails() {
-        try{
+    async function updateProposalDetailsFromContract() {
+        try {
             const result = await proposalDetail()
-            console.log(`testFetch result`, result)
-            setProposalDetailsOnContract(result)
-
+            console.log(`data from contract`, result)
+            let { uri, name, upVotes, downVotes, proposer } = result //upvotes, downvotes are BigNumber objs
+            //bigint to integer
+            upVotes = parseInt(upVotes)
+            downVotes = parseInt(downVotes)
+            console.log(uri, name, upVotes, downVotes, proposer)
+            setProposalDetails((state) => ({
+                ...state,
+                uri,
+                name,
+                upVotes,
+                downVotes,
+                proposer,
+        }))
         } catch (error) {
             console.log(`testFetch error`, error)
             console.log("check if web3 is enabled")
+        }
+    }
+
+    async function updateProposalDetailsFromIPFS() {
+        // TODO: use URL parameter form parent compnent (for now hardcoded)
+        url =
+            "https://gateway.pinata.cloud/ipfs/QmbKN3R7j8ya4DWcKHwuUR2EjiT91pSPc7pwDXaqytGcrn"
+        try {
+            const response = await axios({
+                method: "get",
+                url: url,
+            })
+
+            const { address, markDownData } = await response.data
+            console.log("data from IPFS", { address, markDownData })
+            setProposalDetails((state) => ({
+                 ...state,
+                 markDownData 
+            }))
+
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -39,9 +78,9 @@ function Proposal({ url }) {
 
         // get proposal info from contract
         if (isWeb3Enabled) {
-            updateProposalDetails()
-        }
-        else if (typeof window !== "undefined") {
+            updateProposalDetailsFromContract()
+            updateProposalDetailsFromIPFS()
+        } else if (typeof window !== "undefined") {
             if (window.localStorage.getItem("connected")) {
                 enableWeb3()
                 console.log("enabled web3")
@@ -49,17 +88,40 @@ function Proposal({ url }) {
         }
 
         // TODO:  get proposal content using url from IPFS
-        
-
     }, [isWeb3Enabled])
 
     return (
         <div className="proposalContainer">
-            <div>
-                proposal
-                {/* TODO : render markup  */}
-
+            <div className="proposalHeading">
+                <div className="proposalName">
+                    <h1>{proposalDetails.name}</h1>
+                </div>
+                <div className="proposalAuthor">
+                    <div>by {proposalDetails.proposer}</div>
+                </div>
             </div>
+
+            <div className="proposalContent">
+                {/* TODO: render markup */}
+                CONTENT: 
+                {proposalDetails.markDownData}
+            </div>
+
+            <div className="proposalFooter">
+                <div className="proposalUpVotes">upvotes: {proposalDetails.upVotes}</div>
+                <div className="proposalDownVotes">downvotes: {proposalDetails.downVotes}</div>
+            </div>
+
+            <div className="proposalDiscussion">
+                <Discussion />
+            </div>
+
+            {/* <div>uri: {proposalDetails.uri}</div>
+                <div>name: {proposalDetails.name}</div>
+                <div>proposer: {proposalDetails.proposer}</div>
+                <div>upvotes: {proposalDetails.upVotes}</div>
+                <div>downvotes: {proposalDetails.downVotes}</div>
+                <div>markdown: {proposalDetails.markDownData}</div> */}
 
             <Discussion url={url} />
         </div>
