@@ -83,7 +83,7 @@ function IntroBar({ userAddr, setUserAddr }) {
                         }}
                         disabled={isWeb3EnableLoading}
                     >
-                        Connect to Metamask
+                       Connect to Metamask
                     </button>
                 )}
             </div>

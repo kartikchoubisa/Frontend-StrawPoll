@@ -25,6 +25,7 @@
     width: 60%;
     justify-content: space-between;
     align-items: center;
+
     
 }
 .modalStyleContainer {
@@ -41,6 +42,8 @@
     border-color: #1E1E28;
     margin:0px;
     padding:0px;
+    outline: 0px !important;
+
 }
 
 .boxStyleContainer {

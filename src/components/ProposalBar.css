@@ -35,8 +35,12 @@
     height: 48px;
     font-weight: 600;
 }
+.addProposalButtonContainer{
+    color:white;
+}
 .plusContainer {
     margin-left: 24px;
+    color: white;
 }
 .proposalCardsContainer {
     margin-top: 32px;

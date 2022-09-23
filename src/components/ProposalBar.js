@@ -79,7 +79,7 @@ function ProposalBar({userAddr}) {
                     Latest Proposals
                 </div>
                 <div onClick={handleOpen} className="addProposalContainer">
-                    <div>Add Proposal</div>
+                    <div className="addProposalButtonContainer">Add Proposal</div>
                     <FontAwesomeIcon
                         icon={faPlus}
                         width={16}

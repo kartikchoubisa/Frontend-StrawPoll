@@ -2,6 +2,7 @@ import "./App.css"
 import SideNav from "./components/SideNav"
 import MainDash from "./components/MainDash"
 import Proposal from "./pages/Proposal.jsx"
+import LandingPage from "./pages/Landing"
 import { MoralisProvider } from "react-moralis"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -32,6 +33,7 @@ function App() {
 
                 <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/landing" element={<LandingPage />}/>
                     <Route path="/proposal" element={<ProposalPage />} />
                 </Routes>
             </BrowserRouter>
