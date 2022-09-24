@@ -7,6 +7,8 @@ import dataConst from "../constants/data.json"
 
 function Discussion({ url }) {
     const [comments, setComments] = useState([])
+    const [newCommentContent, setNewCommentContent] = useState("")
+
     const pythonApiEndpoint = dataConst.pythonApiEndpoint
 
     async function getComments() {
@@ -30,16 +32,61 @@ function Discussion({ url }) {
         setComments(comments)
     }
 
+    async function handlePostComment(e) {
+        const hi = "www.proposal1.com"
+        e.preventDefault()
+        try {
+            let newCommentApiEndpoint = `${pythonApiEndpoint}/discussions/${hi}`
+            console.log(`trying to post comment to discussion : ${newCommentApiEndpoint}`)
+            const response = await axios.post(newCommentApiEndpoint, {
+                content: newCommentContent,
+                author_address: "0x1234567890", //TODO: get author address from MM
+            })
+            console.log("posted comment", response.data)
+
+            // update Discussion's state
+            // console.log("getcomments is?" , typeof(fun))
+
+            getComments()
+            
+        
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         //TODO:  get comments from backend server using proposal url on load
         getComments()
         console.log(comments)
     }, [])
 
+    
+
     return (
         <div className="discussionContainer">
             {/* TODO: pass whatever  */}
-            <Comment newComment={true} />
+            
+            <form onSubmit={handlePostComment}>
+                <div className="commentContainer">
+                    <div className="commentLEFT">
+                        <div className="profilePicture">pfp</div>
+                    </div>
+                    <div className="commentRIGHT">
+                        <div className="commentHeader">
+                            <div className="commentAuthor">self.address</div>
+                        </div>
+                        <div className="commentContent">
+                            <input type="text" placeholder="Tell other's what you think" onChange={(e) => setNewCommentContent(e.target.value)} />
+                        </div>
+                        <div className="commentFooter">
+                            <div className="commentPost">
+                                <button type="submit">Post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
 
             {comments.map(({ author, content, likes, dislikes, replies }) => (
                 <Comment
@@ -50,10 +97,8 @@ function Discussion({ url }) {
                     likes={likes}
                     dislikes={dislikes}
                     replies={replies}
-                    newComment={false}
-                    getComments={getComments} //to change Discussion's state from Comment component
                 />
-            ))}
+            )).reverse()}
 
         </div>
     )
