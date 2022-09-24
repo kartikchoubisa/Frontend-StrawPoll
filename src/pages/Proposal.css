@@ -1,37 +1,68 @@
 /* div.proposalContainer * {
     border: 0.5px solid black;
-} */
-
-.proposalContainer {
-    padding: 24px;
-    overflow: scroll;
+}  */
+.proposalPageDashContainer{
+    width: 83%;
+    
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 64px;
+    margin-top: 36px;
+    /* background-color: green; */
 }
 
-.proposalHeading {
+.headingProposalPageContainer{
+    font-size: 24px;
+    margin-right: 24px;
+    color: #e5007a;
+}
+.proposalContainer {
+    padding: 24px;
     
+    
+    width:100%;
+}
+.headingCommentsTop{
+    font-size: 36px;
+    font-weight: 600;
+
+}
+.topIntroBarContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+    
+    width: 600px;
+
 }
 
 .proposalName > h1 {
     
-    font-size: 64px;
-    font-weight: bold;
+    font-size: 48px;
+    font-weight: 600;
     margin: 0px 0px 0px 0px;
     margin-bottom: 0px;
 }
 
 .proposalAuthor {
-    background-color: black;
-    color: white;
+    
+    color: #696969;
     height: 16px;
     font-size: 12px;
-    text-align: right;
-    box-shadow: 4px 4px 4px #d3d3d3;
+    text-align: left;
+    margin-left: 24px;
+    font-style: italic;
+
+
+    
 }
 
 .proposalContent {
     margin: 24px 0px 0px;
     height: 300px;
 }
+
 
 #rectangle{
     width:100;
@@ -41,9 +72,11 @@
 }
 .proposalFooter {
     display: flex;
-    flex-direction: row;
-    justify-content: right;
+    
+    justify-content: space-between;
     color: black;
+    width: 8%;
+    margin-left: 24px;
 }
 
 .proposalUpVotes{
@@ -57,10 +90,10 @@
 
 .solid{
     border-top: 3px solid #bbb;
-    width: 80%;
-    margin-top: 10px;
-    margin-left: 10%;
-    margin-bottom: 10px;
+    width: 100%;
+    margin-top: 16px;
+    
+    margin-bottom: 36px;
     /* display: flex;
     flex-direction: row;
     justify-content: center;

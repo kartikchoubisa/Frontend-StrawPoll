@@ -8,6 +8,16 @@ import axios from "axios"
 import dataConst from "../constants/data.json"
 import "./Proposal.css"
 import MDEditor from "@uiw/react-md-editor"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import ProfilePicture from "../components/ProfilePicture"
+
+
+
+import {
+    faThumbsUp,
+    faThumbsDown,
+    faComment,
+} from "@fortawesome/free-solid-svg-icons"
 
 function Proposal({ url }) {
     const [proposalDetails, setProposalDetails] = useState({
@@ -18,6 +28,12 @@ function Proposal({ url }) {
         downVotes: 0,
         markDownData: "",
     })
+    const {
+        
+        account,
+        
+    } = useMoralis()
+    
     const { Moralis, enableWeb3, isWeb3Enabled } = useMoralis()
 
     const contractAddress = contractAddressData.contractAddress
@@ -72,6 +88,7 @@ function Proposal({ url }) {
             console.log(error)
         }
     }
+    
 
     useEffect(() => {
         console.log("web3 enabled? ", isWeb3Enabled)
@@ -90,7 +107,19 @@ function Proposal({ url }) {
         // TODO:  get proposal content using url from IPFS
     }, [isWeb3Enabled])
 
-    return (
+    return (<div className="proposalPageDashContainer">
+        <div className="topIntroBarContainer">{account ? (
+                    <div className="headingProposalPageContainer">
+                         {account.slice(0, 6)}...
+                        {account.slice(account.length - 4)}{" "}
+                    </div>
+                ) : (
+                    <div className="headingContainer">Hey,</div>
+                )}
+                <div className="profilePicContainer">
+                {<ProfilePicture address={account}/>}
+            </div></div>
+        
         <div className="proposalContainer">
             <div className="proposalHeading">
                 <div className="proposalName">
@@ -110,14 +139,23 @@ function Proposal({ url }) {
                 />
                 
             </div>
-            <div id="rectangle"></div>
+            
             </div>
             <div className="proposalFooter">
+                
                 <div className="proposalUpVotes">
-                    Upvotes: {proposalDetails.upVotes}
+                <FontAwesomeIcon
+                        icon={faThumbsUp}
+                        
+                        className="reactionContainer"
+                    />{proposalDetails.upVotes}
                 </div>
                 <div className="proposalDownVotes">
-                    Downvotes: {proposalDetails.downVotes}
+                <FontAwesomeIcon
+                        icon={faThumbsDown}
+                        
+                        className="reactionContainer"
+                    /> {proposalDetails.downVotes}
                 </div>
             </div>
 
@@ -133,6 +171,7 @@ function Proposal({ url }) {
                 <div>upvotes: {proposalDetails.upVotes}</div>
                 <div>downvotes: {proposalDetails.downVotes}</div>
                 <div>markdown: {proposalDetails.markDownData}</div> */}
+        </div>
         </div>
     )
 }
