@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBell, faCircle } from "@fortawesome/free-solid-svg-icons"
 import { useMoralis } from "react-moralis"
 
+import ProfilePicture from "./ProfilePicture"
+
 function IntroBar({ userAddr, setUserAddr }) {
     const {
         enableWeb3,
@@ -55,7 +57,9 @@ function IntroBar({ userAddr, setUserAddr }) {
                 <div className="notifContainer">
                     <FontAwesomeIcon icon={faBell} />
                 </div>
-                <div className="profilePicContainer"></div>
+                <div className="profilePicContainer">
+                    {<ProfilePicture/>}
+                </div>
             </div>
             <div className="connectButtonContainer">
                 {account ? (
