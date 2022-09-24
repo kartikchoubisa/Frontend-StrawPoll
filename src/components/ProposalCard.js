@@ -79,8 +79,7 @@ function ProposalCard({ name, uri, proposer, upvote, downvote }) {
                     <ProfilePicture address={proposer}/>
                 </div>
                 <div className="proposalAuthorDataContainer">
-                    
-                    <Link to={`/proposal/${uri.split("/").pop()}`} key="proposalIpfsHash" className="proposalTitleContainer">{name}</Link>
+                    <Link to={`/proposal/${uri.split("/").pop()}`} key="proposalIpfsHash" style={{textDecoration: 'none'}} className="proposalTitleContainer">{name}</Link>
 
                     <div className="proposalAuthorContainer">
                         {proposer.slice(0, 6)}...
