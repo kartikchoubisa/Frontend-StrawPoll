@@ -7,6 +7,8 @@ import contractAddressData from "../constants/contractAddress.json"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus, faArrowDown } from "@fortawesome/free-solid-svg-icons"
 import ModalTab from "./Modal"
+import {Routes, Route, useNavigate} from 'react-router-dom';
+
 
 import { ApiPromise, WsProvider } from "@polkadot/api"
 
@@ -15,6 +17,7 @@ function ProposalBar({ userAddr }) {
     const [open, setOpen] = React.useState(false)
     const contractAddress = contractAddressData.contractAddress
     const temp = []
+    const navigate = useNavigate();
     const { chainId, isWeb3Enabled } = useMoralis()
     // console.log(contractAddress.contractAddress)
     const { runContractFunction: viewAllProposals } = useWeb3Contract({
@@ -37,7 +40,7 @@ function ProposalBar({ userAddr }) {
             //     .remarkWithEvent("anighma")
             //     .method.hash.toHex()
             // await console.log(open);
-            
+
             setProposals([])
             if (isWeb3Enabled)
                 for (var i = 0; i < temp.length; i++) {
@@ -56,13 +59,16 @@ function ProposalBar({ userAddr }) {
 
                     setProposals((oldArray) => [
                         ...oldArray,
-                        <ProposalCard
-                            name={name}
-                            uri={uri}
-                            proposer={proposer}
-                            upvote={upvotes}
-                            downvote={downvotes}
-                        />,
+                        // <Link className="linkContainer" to={uri}>
+                            <ProposalCard
+                                name={name}
+                                uri={uri}
+                                proposer={proposer}
+                                upvote={upvotes}
+                                downvote={downvotes}
+                                onClick={()=>{navigate('/proposal')}}
+                            />
+                        // </Link>,
                     ])
                 }
         }
@@ -82,7 +88,11 @@ function ProposalBar({ userAddr }) {
                         </div>
                         <div className="titleProposalTopUnselectedContainer">
                             Sort by
-                            <FontAwesomeIcon icon={faArrowDown} width={8} className="downArrowContainer"/>
+                            <FontAwesomeIcon
+                                icon={faArrowDown}
+                                width={8}
+                                className="downArrowContainer"
+                            />
                         </div>
                         <div className="titleProposalTopUnselectedContainer">
                             Your Proposals
@@ -99,9 +109,7 @@ function ProposalBar({ userAddr }) {
                         }}
                     />
                 </div>
-                <div className="searchBarContainer">
-                    search
-                </div>
+                <div className="searchBarContainer">search</div>
                 <div onClick={handleOpen} className="addProposalContainer">
                     <div className="addProposalButtonContainer">
                         Add Proposal
