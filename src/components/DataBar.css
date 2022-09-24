@@ -9,6 +9,6 @@
 .tempContainer{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    width: 90%;
+    justify-content: space-between;
+    width: 100%;
 }

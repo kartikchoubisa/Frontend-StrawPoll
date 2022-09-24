@@ -23,6 +23,7 @@ function DataCard({ Title, Data,TopContractAddress, Circle, Link }) {
                     color: "#FAFAFA",
                     borderColor: "#FAFAFA",
                     height: "1px",
+                    margin:0
                 }}
             />
             <div className="extraContainer">

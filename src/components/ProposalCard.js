@@ -10,11 +10,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import abi from "../abi.json"
 
-function ProposalCard({ name,uri, proposer, upvote, downvote }) {
+function ProposalCard({ name, uri, proposer, upvote, downvote }) {
     const [like, setLike] = useState(upvote)
     const [dislike, setDislike] = useState(downvote)
-    const contractAddress = contractAddressData.contractAddress;
-
+    const contractAddress = contractAddressData.contractAddress
 
     const { runContractFunction: upVote } = useWeb3Contract({
         abi: abi,
@@ -64,7 +63,7 @@ function ProposalCard({ name,uri, proposer, upvote, downvote }) {
         const downvotes = await getDownVotes()
         const upvotes = await getUpVotes()
         console.log(downvotes)
-        await handleChange(upvotes,downvotes)
+        await handleChange(upvotes, downvotes)
         return ["success", tx]
     }
     const handleDislike = async () => {
@@ -87,9 +86,11 @@ function ProposalCard({ name,uri, proposer, upvote, downvote }) {
                 <div className="proposalReactionContainer">
                     <FontAwesomeIcon
                         icon={faThumbsUp}
+                        
                         onClick={async () => {
                             handleLike()
                         }}
+                        className="reactionContainer"
                     />
                     <div>{like}</div>
                 </div>
@@ -99,12 +100,16 @@ function ProposalCard({ name,uri, proposer, upvote, downvote }) {
                         onClick={async () => {
                             handleDislike()
                         }}
+                        className="reactionContainer"
                     />
 
                     <div>{dislike}</div>
                 </div>
                 <div className="proposalReactionContainer">
-                    <FontAwesomeIcon icon={faComment} />
+                    <FontAwesomeIcon
+                        icon={faComment}
+                        className="reactionContainer"
+                    />
                     <div>{15}</div>
                 </div>
             </div>

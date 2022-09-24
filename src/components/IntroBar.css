@@ -8,7 +8,7 @@
 }
 .welcomeContainer {
     height: 80%;
-    width: 55%;
+    width:66%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,13 +49,14 @@
 }
 .connectButtonContainer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
-    width: 35%;
+    width: 21%;
+    /* margin-right: 24px; */
 }
 .connectWalletContainer {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     height: 48px;
     border-radius: 10px;

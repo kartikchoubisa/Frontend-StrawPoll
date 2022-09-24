@@ -5,10 +5,13 @@ import { useMoralis, useWeb3Contract } from "react-moralis"
 import abi from "../abi.json"
 import contractAddressData from "../constants/contractAddress.json"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlus, faArrowDown } from "@fortawesome/free-solid-svg-icons"
+import {
+    faPlus,
+    faArrowDown,
+    faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons"
 import ModalTab from "./Modal"
-import {Link} from 'react-router-dom';
-
+import { Link } from "react-router-dom"
 
 import { ApiPromise, WsProvider } from "@polkadot/api"
 
@@ -17,7 +20,7 @@ function ProposalBar({ userAddr }) {
     const [open, setOpen] = React.useState(false)
     const contractAddress = contractAddressData.contractAddress
     const temp = []
-    
+
     const { chainId, isWeb3Enabled } = useMoralis()
     // console.log(contractAddress.contractAddress)
     const { runContractFunction: viewAllProposals } = useWeb3Contract({
@@ -59,16 +62,14 @@ function ProposalBar({ userAddr }) {
 
                     setProposals((oldArray) => [
                         ...oldArray,
-                        
-                            <ProposalCard
-                                name={name}
-                                uri={uri}
-                                proposer={proposer}
-                                upvote={upvotes}
-                                downvote={downvotes}
-                                
-                            />
-                        
+
+                        <ProposalCard
+                            name={name}
+                            uri={uri}
+                            proposer={proposer}
+                            upvote={upvotes}
+                            downvote={downvotes}
+                        />,
                     ])
                 }
         }
@@ -90,7 +91,7 @@ function ProposalBar({ userAddr }) {
                             Sort by
                             <FontAwesomeIcon
                                 icon={faArrowDown}
-                                width={8}
+                                width={16}
                                 className="downArrowContainer"
                             />
                         </div>
@@ -101,47 +102,20 @@ function ProposalBar({ userAddr }) {
                     <hr
                         className="lineSortContainer"
                         style={{
-                            background: "black",
-                            color: "black",
-                            borderColor: "black",
-                            height: "1px",
-                            width: "60%",
+                            background: "#b3b3b3 ",
+                            color: "#b3b3b3 ",
+                            borderWidth: "0px",
+                            height: "1.5px",
+                            width: "90%",
                         }}
                     />
-                    </div>
-                
-                
-                    <div className="searchBarContainer">Search</div>
+                </div>
 
+                <div className="searchBarContainer">
+                    <div className="searchNameContainer">Search</div>
 
-
-             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    <FontAwesomeIcon  icon={faMagnifyingGlass} width={16} />
+                </div>
 
                 <div onClick={handleOpen} className="addProposalContainer">
                     <div className="addProposalButtonContainer">
@@ -159,7 +133,9 @@ function ProposalBar({ userAddr }) {
                 open={open}
                 handleClose={handleClose}
             />
-            <Link to="/proposal" className="proposalCardsContainer">{proposals}</Link>
+            <Link to="/proposal" className="proposalCardsContainer">
+                {proposals}
+            </Link>
         </div>
     )
 }

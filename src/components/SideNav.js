@@ -15,10 +15,10 @@ function SideNav() {
 
             </div>
             <div className="socialContainer">
-                <div className="githubContainer"><FontAwesomeIcon icon={faGithub} /></div>
-                <div className="discordContainer"><FontAwesomeIcon icon={faTwitter} /></div>
-                <div className="twitterContainer"><FontAwesomeIcon icon={faDiscord} /></div>
-                <div className="facebookContainer"><FontAwesomeIcon icon={faFacebook} /></div>
+                <div className="githubContainer"><FontAwesomeIcon icon={faGithub} width={24 } /></div>
+                <div className="discordContainer"><FontAwesomeIcon icon={faTwitter} width={24 }/></div>
+                <div className="twitterContainer"><FontAwesomeIcon icon={faDiscord}width={24 } /></div>
+                <div className="facebookContainer"><FontAwesomeIcon icon={faFacebook} width={24 }/></div>
             </div>
         </div>
     )
