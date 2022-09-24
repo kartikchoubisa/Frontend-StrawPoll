@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import Comment from "./Comment.jsx"
 import axios from "axios"
 import dataConst from "../constants/data.json"
+import ProfilePicture from "./ProfilePicture.jsx"
 
 function Discussion({ url }) {
     const [comments, setComments] = useState([])
@@ -76,14 +77,14 @@ function Discussion({ url }) {
     return (
         <div className="discussionContainer">
             {/* TODO: pass whatever  */}
-
+        <div className="headingCommentsTop">Comments</div>
             <form onSubmit={handlePostComment}>
                 <div className="commentContainer">
                     <div className="commentLEFT">
-                        <div className="profilePicture">pfp</div>
+                        <div className="profilePicture"><ProfilePicture address={" "}/></div>
                     </div>
                     <div className="commentRIGHT">
-                        <div className="commentAuthor">self.address</div>
+                       
 
                         <div className="commentContent">
                             <input
@@ -92,11 +93,12 @@ function Discussion({ url }) {
                                 onChange={(e) =>
                                     setNewCommentContent(e.target.value)
                                 }
+                                className="inputContainer"
                             />
                         </div>
                         <div className="commentFooter">
                             <div className="commentPost">
-                                <button type="submit">Post</button>
+                                <button className="commentButton" type="submit">Post</button>
                             </div>
                         </div>
                     </div>
