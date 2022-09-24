@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faPlus,
     faArrowDown,
+    faArrowUp,
     faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons"
 import ModalTab from "./Modal"
@@ -18,6 +19,7 @@ import { ApiPromise, WsProvider } from "@polkadot/api"
 function ProposalBar({ userAddr }) {
     const [proposals, setProposals] = useState([])
     const [open, setOpen] = React.useState(false)
+    const [sortLatestFirst, setSortLatestFirst] = useState(true)
     const contractAddress = contractAddressData.contractAddress
     const temp = []
 
@@ -35,7 +37,7 @@ function ProposalBar({ userAddr }) {
 
     useEffect(() => {
         async function updateUi() {
-            const temp = await viewAllProposals()
+            const allProposalsFromContract = await viewAllProposals()
             // // const api = await ApiPromise.create();
             // const wsProvider = new WsProvider("wss://rpc.polkadot.io")
             // const api = await ApiPromise.create({ provider: wsProvider })
@@ -45,40 +47,46 @@ function ProposalBar({ userAddr }) {
             // await console.log(open);
 
             setProposals([])
+            let allProposalsCleaned = []
             if (isWeb3Enabled)
-                for (var i = 0; i < temp.length; i++) {
+                for (var i = 0; i < allProposalsFromContract.length; i++) {
                     const {
                         name,
                         uri,
                         proposer,
                         upVotes,
                         downVotes,
-                    } = await temp[i]
+                    } = await allProposalsFromContract[i]
+
                     const upvotes = parseInt(upVotes)
                     const downvotes = parseInt(downVotes)
                     // console.log(api.tx.system.remarkWithEvent('anighma').method.hash.toHex())
 
                     // console.log(`${txHash}`)
 
-                    setProposals((oldArray) => [
-                        ...oldArray,
-
-                        <ProposalCard
-                            name={name}
-                            uri={uri}
-                            proposer={proposer}
-                            upvote={upvotes}
-                            downvote={downvotes}
-                        />,
-                    ])
+                    allProposalsCleaned.push({name, uri, proposer, upvotes, downvotes})
                 }
+
+            setProposals(allProposalsCleaned.map((proposal, i) => {
+                return (
+                    <ProposalCard
+                        key={i}
+                        name={proposal.name}
+                        uri={proposal.uri}
+                        proposer={proposal.proposer}
+                        upvote={proposal.upvotes}
+                        downvote={proposal.downvotes}
+                    />
+                )
+            }))
         }
         updateUi()
     }, [isWeb3Enabled])
 
-    for (var i = 0; i < temp.length; i++) {
-        setProposals((oldArray) => [...oldArray, <ProposalCard />])
-    }
+    // for (var i = 0; i < temp.length; i++) {
+    //     setProposals((oldArray) => [...oldArray, <ProposalCard />])
+    // }
+
     return (
         <div className="proposalBarContainer">
             <div className="titleProposalContainer">
@@ -90,7 +98,8 @@ function ProposalBar({ userAddr }) {
                         <div className="titleProposalTopUnselectedContainer">
                             Sort by
                             <FontAwesomeIcon
-                                icon={faArrowDown}
+                                onClick = {() => setSortLatestFirst((prevState) => !prevState)}
+                                icon={sortLatestFirst ? faArrowDown : faArrowUp}
                                 width={16}
                                 className="downArrowContainer"
                             />
@@ -134,7 +143,7 @@ function ProposalBar({ userAddr }) {
                 handleClose={handleClose}
             />
             <div className="proposalCardsContainer">
-                {proposals}
+                {sortLatestFirst ? proposals.reverse() : proposals}
             </div>
         </div>
     )
