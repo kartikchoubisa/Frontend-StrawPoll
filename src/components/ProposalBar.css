@@ -90,3 +90,18 @@
     flex-wrap: wrap;
     height: 90%;
 }
+
+.searchBarContainer {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    color: black;
+    height: 60%;
+    width: 360px;
+    margin-right: 64px;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding-left:8px;
+    
+  }
+  

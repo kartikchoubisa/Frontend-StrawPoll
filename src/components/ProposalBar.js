@@ -108,8 +108,41 @@ function ProposalBar({ userAddr }) {
                             width: "60%",
                         }}
                     />
-                </div>
-                <div className="searchBarContainer">search</div>
+                    </div>
+                
+                
+                    <div className="searchBarContainer">Search</div>
+
+
+
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div onClick={handleOpen} className="addProposalContainer">
                     <div className="addProposalButtonContainer">
                         Add Proposal
