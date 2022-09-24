@@ -1,3 +1,43 @@
 div.proposalContainer * {
     border: 0.5px solid black;
 }
+
+.proposalContainer {
+    padding: 24px;
+    overflow: scroll;
+}
+
+.proposalHeading {
+
+}
+
+.proposalName > h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0px 0px 0px 0px;
+    margin-bottom: 8px;
+}
+
+.proposalAuthor {
+    font-size: 16px;
+}
+
+.proposalContent {
+    margin: 24px 0px 24px 0px;
+    height: 300px;
+}
+
+.proposalFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.proposalDiscussion {
+    margin: 24px 0 0 0;
+}
+
+
+
+
