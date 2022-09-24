@@ -9,6 +9,7 @@ import {
     faComment,
 } from "@fortawesome/free-solid-svg-icons"
 import abi from "../abi.json"
+import ProfilePicture from "./ProfilePicture"
 
 function ProposalCard({ name, uri, proposer, upvote, downvote }) {
     const [like, setLike] = useState(upvote)
@@ -73,7 +74,9 @@ function ProposalCard({ name, uri, proposer, upvote, downvote }) {
     return (
         <div className="proposalCardContainer">
             <div className="porposalCardDataContainer">
-                <div className="proposalCircleContainer"></div>
+                <div className="proposalCircleContainer">
+                    <ProfilePicture address={proposer}/>
+                </div>
                 <div className="proposalAuthorDataContainer">
                     <div className="proposalTitleContainer">{name}</div>
                     <div className="proposalAuthorContainer">
