@@ -35,10 +35,8 @@ function Comment({
                     <div className="commentLEFT">
                         <div className="profilePicture">pfp</div>
                     </div>
-                    <div className="commentRIGHT">
-                        <div className="commentHeader">
-                            <div className="commentAuthor">{author}</div>
-                        </div>
+                    <div className="commentRIGHT">                        
+                        <div className="commentAuthor">{author}</div>                        
                         <div className="commentContent">{content}</div>
                         <div className="commentFooter">
                             <div className="commentLikes">{likes}</div>

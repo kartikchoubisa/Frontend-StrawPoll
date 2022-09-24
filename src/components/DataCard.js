@@ -28,7 +28,7 @@ function DataCard({ Title, Data,TopContractAddress, Circle, Link }) {
             />
             <div className="extraContainer">
                 {/* {topContractAddr ? (<div >{topContractAddr.slice(0, 18)}...</div>) : (<div></div>)} */}
-            {topContractAddr ? (<div className="viewMoreContainer">view more</div>):(<div></div>)}
+            {topContractAddr ? (<div className="viewMoreContainer">View More</div>):(<div></div>)}
                 
                 {/* <div className="extraContainer">{TopContractAddress}</div> */}
                 {/* <div className="linkContainer">{Link}</div> */}

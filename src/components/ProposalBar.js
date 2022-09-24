@@ -36,7 +36,7 @@ function ProposalBar({ userAddr }) {
     useEffect(() => {
         async function updateUi() {
             const temp = await viewAllProposals()
-            // const api = await ApiPromise.create();
+            // // const api = await ApiPromise.create();
             // const wsProvider = new WsProvider("wss://rpc.polkadot.io")
             // const api = await ApiPromise.create({ provider: wsProvider })
             // const txHash = api.tx.system

@@ -45,8 +45,10 @@
     color:white;
 }
 .viewMoreContainer {
+    margin-right: 20px;
     display: flex;
-    /* justify-content: center; */
+    flex-direction: row;
+    justify-content: center; 
     align-items: center;
     box-sizing: border-box;
     padding-bottom: 15px;

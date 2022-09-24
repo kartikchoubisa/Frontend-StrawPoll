@@ -98,6 +98,9 @@ padding:16px;
     height: 40px;
     font-weight: 600;
 }
+.addProposalContainer:hover{
+    cursor: pointer;
+}
 .addProposalButtonContainer {
     color: white;
 }
