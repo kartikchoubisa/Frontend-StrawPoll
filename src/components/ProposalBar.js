@@ -5,12 +5,12 @@ import { useMoralis, useWeb3Contract } from "react-moralis"
 import abi from "../abi.json"
 import contractAddressData from "../constants/contractAddress.json"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlus, faCircle } from "@fortawesome/free-solid-svg-icons"
+import { faPlus, faArrowDown } from "@fortawesome/free-solid-svg-icons"
 import ModalTab from "./Modal"
 
 import { ApiPromise, WsProvider } from "@polkadot/api"
 
-function ProposalBar({userAddr}) {
+function ProposalBar({ userAddr }) {
     const [proposals, setProposals] = useState([])
     const [open, setOpen] = React.useState(false)
     const contractAddress = contractAddressData.contractAddress
@@ -75,11 +75,37 @@ function ProposalBar({userAddr}) {
     return (
         <div className="proposalBarContainer">
             <div className="titleProposalContainer">
-                <div className="titleProposalTopContainer">
-                    Latest Proposals
+                <div className="sortingContainer">
+                    <div className="sortingOptionContainer">
+                        <div className="titleProposalTopContainer">
+                            Latest Proposals
+                        </div>
+                        <div className="titleProposalTopUnselectedContainer">
+                            Sort by
+                            <FontAwesomeIcon icon={faArrowDown} width={8} className="downArrowContainer"/>
+                        </div>
+                        <div className="titleProposalTopUnselectedContainer">
+                            Your Proposals
+                        </div>
+                    </div>
+                    <hr
+                        className="lineSortContainer"
+                        style={{
+                            background: "black",
+                            color: "black",
+                            borderColor: "black",
+                            height: "1px",
+                            width: "60%",
+                        }}
+                    />
+                </div>
+                <div className="searchBarContainer">
+                    search
                 </div>
                 <div onClick={handleOpen} className="addProposalContainer">
-                    <div className="addProposalButtonContainer">Add Proposal</div>
+                    <div className="addProposalButtonContainer">
+                        Add Proposal
+                    </div>
                     <FontAwesomeIcon
                         icon={faPlus}
                         width={16}
@@ -87,9 +113,12 @@ function ProposalBar({userAddr}) {
                     />
                 </div>
             </div>
-            <ModalTab userAddr={ userAddr} open={open} handleClose={handleClose} />
+            <ModalTab
+                userAddr={userAddr}
+                open={open}
+                handleClose={handleClose}
+            />
             <div className="proposalCardsContainer">{proposals}</div>
-            
         </div>
     )
 }

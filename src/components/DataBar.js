@@ -34,7 +34,7 @@ function DataBar() {
         console.log("hello")
         let weekday = new Date().getDay()
         console.log(weekday)
-        let dayLeft = 7 - weekday;
+        let dayLeft = 7 - weekday
 
         console.log(topCont.uri)
         setTopName(topN)
@@ -51,6 +51,11 @@ function DataBar() {
                 <DataCard
                     Title={"GLMR Price"}
                     Data={`$ ${glmrToUsd}`}
+                    TopContractAddress={"http://glmrtousdconverter"}
+                />,
+                <DataCard
+                    Title={"Push for Governance in"}
+                    Data={`${dayLeft} days`}
                     TopContractAddress={"http://glmrtousdconverter"}
                 />,
                 <DataCard

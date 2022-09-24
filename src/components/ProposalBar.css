@@ -10,21 +10,57 @@
 }
 .titleProposalContainer {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
     height: 10%;
     margin-top: 32px;
     width: 95%;
 }
+.sortingContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+}
+.lineSortContainer {
+    width: 100%;
+    margin: 0;
+}
 .titleProposalTopContainer {
     display: flex;
     align-items: center;
-    justify-content: center;
+
     font-size: 24px;
     font-weight: 600;
+    margin-right: 36px;
+}
+.sortingOptionContainer {
+    display: flex;
+    margin-bottom: 4px;
+    margin-top: 16px;
+    box-sizing: border-box;
+    width:80%;
+}
+.titleProposalTopUnselectedContainer {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 36px;
+}
+.searchBarContainer {
+    padding-right: 16px;
+    border-radius: 20px;
+    border-style: solid;
+    width:300px;
+
+}
+.downArrowContainer {
+    margin-left: 8px;
 }
 .addProposalContainer {
-    width: 200px;
+    width: 250px;
     background-color: #e5007a;
     display: flex;
     align-items: center;
@@ -35,8 +71,8 @@
     height: 48px;
     font-weight: 600;
 }
-.addProposalButtonContainer{
-    color:white;
+.addProposalButtonContainer {
+    color: white;
 }
 .plusContainer {
     margin-left: 24px;
@@ -48,4 +84,3 @@
     flex-wrap: wrap;
     height: 90%;
 }
-
