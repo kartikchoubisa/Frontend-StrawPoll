@@ -100,7 +100,7 @@ function Proposal({ url }) {
                     <div>by {proposalDetails.proposer}</div>
                 </div>
             </div>
-
+            <div className="ProposalBody">
             <div>
                 {/* TODO: render markup */}
                 <MDEditor.Markdown
@@ -108,14 +108,16 @@ function Proposal({ url }) {
                     style={{ whiteSpace: "pre-wrap", backgroundColor:"white", color:"black" }}
                     className="proposalContent"
                 />
+                
             </div>
-
+            <div id="rectangle"></div>
+            </div>
             <div className="proposalFooter">
                 <div className="proposalUpVotes">
-                    upvotes: {proposalDetails.upVotes}
+                    Upvotes: {proposalDetails.upVotes}
                 </div>
                 <div className="proposalDownVotes">
-                    downvotes: {proposalDetails.downVotes}
+                    Downvotes: {proposalDetails.downVotes}
                 </div>
             </div>
 
