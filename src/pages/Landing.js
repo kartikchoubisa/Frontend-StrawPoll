@@ -27,6 +27,7 @@ function Landing() {
                         if (typeof window !== "undefined") {
                             window.localStorage.setItem("connected", "injected")
                         }
+                        
                     }}
                     className="buttonNavContainer"
                     disable={isWeb3EnableLoading}
@@ -41,32 +42,32 @@ function Landing() {
                         A democratised and accesible precursor to governance{" "}
                     </div>
                     <div className="socialContainer">
-                        <div className="githubContainer">
+                        <div className="socialLogoContainer">
                             <FontAwesomeIcon
                                 icon={faGithub}
-                                color="black"
-                                width={24}
+                                color="#e5007a"
+                                width={16}
                             />
                         </div>
-                        <div className="discordContainer">
+                        <div className="socialLogoContainer">
                             <FontAwesomeIcon
                                 icon={faTwitter}
-                                color="black"
-                                width={24}
+                                color="#e5007a"
+                                width={16}
                             />
                         </div>
-                        <div className="twitterContainer">
+                        <div className="socialLogoContainer">
                             <FontAwesomeIcon
                                 icon={faDiscord}
-                                color="black"
-                                width={24}
+                                color="#e5007a"
+                                width={16}
                             />
                         </div>
-                        <div className="facebookContainer">
+                        <div className="socialLogoContainer">
                             <FontAwesomeIcon
                                 icon={faFacebook}
-                                color="black"
-                                width={24}
+                                color="#e5007a"
+                                width={16}
                             />
                         </div>
                     </div>

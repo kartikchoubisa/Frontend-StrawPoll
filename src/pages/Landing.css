@@ -37,6 +37,7 @@
     width: 20%;
     background-color: #e5007a;
     color: white;
+    text-decoration: none;
 }
 .headingLandingContainer {
     width: 60%;
@@ -44,15 +45,19 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 7%;
-    
+
     color: #e5007a;
 }
-.heading1Container{
+.heading1Container {
     font-size: 64px;
     font-weight: 600;
 }
-.heading2Container{
+.heading2Container {
     font-size: 36px;
     font-weight: 400;
-    color:black;
+    color: black;
 }
+.socialLogoContainer {
+    margin-top: 64px;
+}
+

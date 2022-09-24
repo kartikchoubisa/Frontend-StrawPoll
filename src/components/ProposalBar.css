@@ -89,4 +89,10 @@
     display: flex;
     flex-wrap: wrap;
     height: 90%;
+    text-decoration: none;
+    color:black;
+}
+
+.proposalCardsContainer :visited {
+    text-decoration: none;
 }

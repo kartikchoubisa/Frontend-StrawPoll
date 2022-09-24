@@ -7,6 +7,7 @@ import contractAddressData from "../constants/contractAddress.json"
 import axios from "axios"
 import dataConst from "../constants/data.json"
 import "./Proposal.css"
+import MDEditor from "@uiw/react-md-editor"
 
 function Proposal({ url }) {
     const [proposalDetails, setProposalDetails] = useState({
@@ -44,7 +45,7 @@ function Proposal({ url }) {
                 upVotes,
                 downVotes,
                 proposer,
-        }))
+            }))
         } catch (error) {
             console.log(`testFetch error`, error)
             console.log("check if web3 is enabled")
@@ -64,10 +65,9 @@ function Proposal({ url }) {
             const { address, markDownData } = await response.data
             console.log("data from IPFS", { address, markDownData })
             setProposalDetails((state) => ({
-                 ...state,
-                 markDownData 
+                ...state,
+                markDownData,
             }))
-
         } catch (error) {
             console.log(error)
         }
@@ -101,15 +101,22 @@ function Proposal({ url }) {
                 </div>
             </div>
 
-            <div className="proposalContent">
+            <div>
                 {/* TODO: render markup */}
-                CONTENT: 
-                {proposalDetails.markDownData}
+                <MDEditor.Markdown
+                    source={proposalDetails.markDownData}
+                    style={{ whiteSpace: "pre-wrap", backgroundColor:"white", color:"black" }}
+                    className="proposalContent"
+                />
             </div>
 
             <div className="proposalFooter">
-                <div className="proposalUpVotes">upvotes: {proposalDetails.upVotes}</div>
-                <div className="proposalDownVotes">downvotes: {proposalDetails.downVotes}</div>
+                <div className="proposalUpVotes">
+                    upvotes: {proposalDetails.upVotes}
+                </div>
+                <div className="proposalDownVotes">
+                    downvotes: {proposalDetails.downVotes}
+                </div>
             </div>
 
             <div className="proposalDiscussion">
@@ -122,7 +129,6 @@ function Proposal({ url }) {
                 <div>upvotes: {proposalDetails.upVotes}</div>
                 <div>downvotes: {proposalDetails.downVotes}</div>
                 <div>markdown: {proposalDetails.markDownData}</div> */}
-
         </div>
     )
 }
