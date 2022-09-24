@@ -5,26 +5,11 @@ import { multiavatar } from "@multiavatar/multiavatar"
 import { useEffect } from "react"
 import axios from "axios"
 
-function ProfilePicture() {
+function ProfilePicture({address}) {
 
-    // const [profilePicture, setProfilePicture] = React.useState("")
-
-    // async function generateProfilePicture(address) {
-    //     let avatarId = "Binx Bond"
-    //     const res = await axios.get("https://api.multiavatar.com/" + JSON.stringify(avatarId))
-    //     const svg = res.data
-    //     console.log("svg of profile pic", svg)
-    //     setProfilePicture(svg)
-    //     // return svg
-    // }
-
-    // useEffect(() => {
-    //     generateProfilePicture()
-    // }, [])
-
-    return <div>
-        <img src="https://api.multiavatar.com/BinxBond.svg" />
-    </div>
+    return (
+        <img src={`https://api.multiavatar.com/${address}.svg`} width="48px" height="64px" />
+   )
 }
 
 export default ProfilePicture

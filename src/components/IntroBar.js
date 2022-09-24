@@ -58,7 +58,7 @@ function IntroBar({ userAddr, setUserAddr }) {
                     <FontAwesomeIcon icon={faBell} />
                 </div>
                 <div className="profilePicContainer">
-                    {<ProfilePicture/>}
+                    {<ProfilePicture address={account}/>}
                 </div>
             </div>
             <div className="connectButtonContainer">
