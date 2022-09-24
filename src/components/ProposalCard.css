@@ -60,6 +60,9 @@
 .reactionContainer{
     margin-right: 4px;
 }
+.reactionContainer:hover{
+    color:#e5007a;
+}
 .proposalReactionContainer{
     display: flex;
     align-items: center;
