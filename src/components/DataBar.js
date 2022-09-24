@@ -44,21 +44,25 @@ function DataBar() {
             ...oldArray,
             [
                 <DataCard
+                    key={1}
                     Title={"This Weeks Top Proposal"}
                     Data={topN}
                     TopContractAddress={topA}
                 />,
                 <DataCard
+                    key={2}
                     Title={"GLMR Price"}
                     Data={`$ ${glmrToUsd}`}
                     TopContractAddress={"http://glmrtousdconverter"}
                 />,
                 <DataCard
+                    key={3}
                     Title={"Push for Governance in"}
                     Data={`${dayLeft} days`}
                     TopContractAddress={"http://glmrtousdconverter"}
                 />,
                 <DataCard
+                    key={4}
                     Title={"Push for Governance in"}
                     Data={`${dayLeft} days`}
                     TopContractAddress={"http://glmrtousdconverter"}

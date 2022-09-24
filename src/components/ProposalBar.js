@@ -46,7 +46,6 @@ function ProposalBar({ userAddr }) {
             //     .method.hash.toHex()
             // await console.log(open);
 
-            setProposals([])
             let allProposalsCleaned = []
             if (isWeb3Enabled)
                 for (var i = 0; i < allProposalsFromContract.length; i++) {
@@ -78,7 +77,8 @@ function ProposalBar({ userAddr }) {
                         downvote={proposal.downvotes}
                     />
                 )
-            }))
+            }).reverse()
+            )
         }
         updateUi()
     }, [isWeb3Enabled])
@@ -95,11 +95,14 @@ function ProposalBar({ userAddr }) {
                         <div className="titleProposalTopContainer">
                             Latest Proposals
                         </div>
-                        <div className="titleProposalTopUnselectedContainer">
+                        <div className="titleProposalTopUnselectedContainer"
+                        onClick = {() => {
+                            setSortLatestFirst(!sortLatestFirst)
+                            setProposals(proposals.reverse())
+                        }}>
                             Sort by
                             <FontAwesomeIcon
-                                onClick = {() => setSortLatestFirst((prevState) => !prevState)}
-                                icon={sortLatestFirst ? faArrowDown : faArrowUp}
+                                icon={sortLatestFirst ?  faArrowUp : faArrowDown}
                                 width={16}
                                 className="downArrowContainer"
                             />
@@ -143,7 +146,7 @@ function ProposalBar({ userAddr }) {
                 handleClose={handleClose}
             />
             <div className="proposalCardsContainer">
-                {sortLatestFirst ? proposals.reverse() : proposals}
+                {proposals}
             </div>
         </div>
     )
