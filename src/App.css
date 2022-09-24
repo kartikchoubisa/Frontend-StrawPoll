@@ -21,10 +21,14 @@
     border-radius: 100vh;
 }
 .sideContainer {
-    /* width: 17.5%; */
+    width: 17.5%;
     height: 100%;
 }
 .mainContainer {
-    /* width: 82.5%; */
+    width: 82.5%;
     height: 100%;
 }
+
+.proposalContainer {
+    width: 82.5%;
+    height: 100%;}

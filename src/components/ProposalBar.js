@@ -37,7 +37,7 @@ function ProposalBar({ userAddr }) {
             //     .remarkWithEvent("anighma")
             //     .method.hash.toHex()
             // await console.log(open);
-
+            
             setProposals([])
             if (isWeb3Enabled)
                 for (var i = 0; i < temp.length; i++) {

@@ -1,4 +1,5 @@
 import React from "react"
+import "./Comment.css"
 
 function Comment({ content, author, likes, dislikes, replies }) {
     return (
