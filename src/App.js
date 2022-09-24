@@ -22,7 +22,7 @@ function App() {
         return (
             <div className="container">
                 <SideNav className="sideContainer" />
-                <Proposal url="testing..." className="proposalContainer" />
+                <Proposal className="proposalContainer" />
             </div>)
     }
 
@@ -34,7 +34,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/landing" element={<LandingPage />}/>
-                    <Route path="/proposal/:proposalUrl" element={<ProposalPage />} />
+                    <Route path="/proposal/:proposalIpfsHash" element={<ProposalPage />} />
                 </Routes>
             </BrowserRouter>
         </MoralisProvider>

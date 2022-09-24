@@ -14,7 +14,7 @@ function Comment({
     replies,
     
 }) {
-    const pythonApiEndpoint = dataConst.pythonApiEndpoint
+    const pythonApiPrefix = dataConst.pythonApiPrefix
 
     const [commentLikes, setCommentLikes] = React.useState(likes)
     const [commentDislikes, setCommentDislikes] = React.useState(dislikes)

@@ -15,6 +15,7 @@ import ProfilePicture from "../components/ProfilePicture"
 
 
 
+
 import {
     faThumbsUp,
     faThumbsDown,
@@ -22,8 +23,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 function Proposal() {
-    const { url } = useParams()
-    
+
+    const { proposalIpfsHash } = useParams()
+    const [proposalUrl, setProposalUrl] = useState(dataConst.ipfsUrlPrefix+"/"+proposalIpfsHash)
     const [proposalDetails, setProposalDetails] = useState({
         uri: "",
         name: "",
@@ -57,7 +59,7 @@ function Proposal() {
             //bigint to integer
             upVotes = parseInt(upVotes)
             downVotes = parseInt(downVotes)
-            console.log(uri, name, upVotes, downVotes, proposer)
+            // console.log(uri, name, upVotes, downVotes, proposer)
             setProposalDetails((state) => ({
                 ...state,
                 uri,
@@ -73,13 +75,10 @@ function Proposal() {
     }
 
     async function updateProposalDetailsFromIPFS() {
-        // TODO: use URL parameter form parent compnent (for now hardcoded)
-        url =
-            "https://gateway.pinata.cloud/ipfs/QmbKN3R7j8ya4DWcKHwuUR2EjiT91pSPc7pwDXaqytGcrn"
         try {
             const response = await axios({
                 method: "get",
-                url: url,
+                url: proposalUrl,
             })
 
             const { address, markDownData } = await response.data
@@ -96,6 +95,7 @@ function Proposal() {
 
     useEffect(() => {
         console.log("web3 enabled? ", isWeb3Enabled)
+        console.log("proposal opened, proposalUrl (from ipfs hash): ", proposalUrl)
 
         // get proposal info from contract
         if (isWeb3Enabled) {
@@ -108,7 +108,6 @@ function Proposal() {
             }
         }
 
-        // TODO:  get proposal content using url from IPFS
     }, [isWeb3Enabled])
 
     return (<div className="proposalPageDashContainer">
@@ -125,7 +124,6 @@ function Proposal() {
             </div></div>
         
         <div className="proposalContainer">
-            <div> HII {url} </div>
             <div className="proposalHeading">
                 <div className="proposalName">
                     <h1>{proposalDetails.name}</h1>
@@ -167,7 +165,7 @@ function Proposal() {
             <div class="solid"></div>
             
             <div className="proposalDiscussion">
-                <Discussion url={url} />
+                <Discussion proposalUrl={proposalUrl} /> 
             </div>
 
             {/* <div>uri: {proposalDetails.uri}</div>

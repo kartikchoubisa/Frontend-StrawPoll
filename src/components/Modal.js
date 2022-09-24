@@ -27,8 +27,8 @@ function ModalTab({ userAddr, open, handleClose }) {
 
     async function sendProposalUrlToPythonBackend() {
 
-        const pythonApiEndpoint = dataConst.pythonApiEndpoint
-        const newDiscussionEndpoint = `${pythonApiEndpoint}/discussions`
+        const pythonApiPrefix = dataConst.pythonApiPrefix
+        const newDiscussionEndpoint = `${pythonApiPrefix}/discussions`
 
         try {
             console.log("sending proposal url to python backend : ", newDiscussionEndpoint)
@@ -67,7 +67,8 @@ function ModalTab({ userAddr, open, handleClose }) {
 
             // get ipfs url and store for later use
             const ipfsHash = await resJson.data.IpfsHash
-            const url_string = `https://gateway.pinata.cloud/ipfs/${ipfsHash}`
+            const url_string = dataConst.ipfsUrlPrefix + "/" + ipfsHash
+            
             console.log("final ipfs url string", `${url_string}`)
             setProposalUrl(url_string)
 
