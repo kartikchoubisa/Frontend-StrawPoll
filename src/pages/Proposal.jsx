@@ -8,23 +8,12 @@ import axios from "axios"
 import dataConst from "../constants/data.json"
 import "./Proposal.css"
 import MDEditor from "@uiw/react-md-editor"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import ProfilePicture from "../components/ProfilePicture"
 import {useParams} from "react-router-dom"
-<<<<<<< HEAD
-import {useParams} from "react-router-dom"
-=======
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ProfilePicture from "../components/ProfilePicture"
 
 
-
-import {
-    faThumbsUp,
-    faThumbsDown,
-    faComment,
-} from "@fortawesome/free-solid-svg-icons"
->>>>>>> 3066241ba82674167fb147f7c0f5b3dfd4817138
 
 import {
     faThumbsUp,
