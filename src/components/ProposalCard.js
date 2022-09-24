@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useMoralis, useWeb3Contract } from "react-moralis"
+import {Link} from "react-router-dom"
 import contractAddressData from "../constants/contractAddress.json"
 import "./ProposalCard.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -78,7 +79,9 @@ function ProposalCard({ name, uri, proposer, upvote, downvote }) {
                     <ProfilePicture address={proposer}/>
                 </div>
                 <div className="proposalAuthorDataContainer">
-                    <div className="proposalTitleContainer">{name}</div>
+                    
+                    <Link to={`/proposal/${123}`} key="123" className="proposalTitleContainer">{name}</Link>
+
                     <div className="proposalAuthorContainer">
                         {proposer.slice(0, 6)}...
                         {proposer.slice(proposer.length - 4)}

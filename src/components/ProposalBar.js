@@ -133,9 +133,9 @@ function ProposalBar({ userAddr }) {
                 open={open}
                 handleClose={handleClose}
             />
-            <Link to="/proposal" className="proposalCardsContainer">
+            <div className="proposalCardsContainer">
                 {proposals}
-            </Link>
+            </div>
         </div>
     )
 }

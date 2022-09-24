@@ -34,7 +34,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/landing" element={<LandingPage />}/>
-                    <Route path="/proposal" element={<ProposalPage />} />
+                    <Route path="/proposal/:proposalUrl" element={<ProposalPage />} />
                 </Routes>
             </BrowserRouter>
         </MoralisProvider>

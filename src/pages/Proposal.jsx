@@ -8,8 +8,11 @@ import axios from "axios"
 import dataConst from "../constants/data.json"
 import "./Proposal.css"
 import MDEditor from "@uiw/react-md-editor"
+import {useParams} from "react-router-dom"
 
-function Proposal({ url }) {
+function Proposal() {
+    const { url } = useParams()
+    
     const [proposalDetails, setProposalDetails] = useState({
         uri: "",
         name: "",
@@ -91,7 +94,9 @@ function Proposal({ url }) {
     }, [isWeb3Enabled])
 
     return (
+
         <div className="proposalContainer">
+            <div> HII {url} </div>
             <div className="proposalHeading">
                 <div className="proposalName">
                     <h1>{proposalDetails.name}</h1>

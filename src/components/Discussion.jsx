@@ -14,9 +14,20 @@ function Discussion({ url }) {
         const discussionEndpoint = `${pythonApiEndpoint}/discussions/www.proposal1.com`
         console.log("getting comments", discussionEndpoint)
 
-        const response = await axios.get(discussionEndpoint)
+        const response = await axios({
+            method: "get",
+            url: discussionEndpoint,
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
+            },
+        })
+
         console.log("got comments", response.data)
         let comments = response.data.discussion.comments
+
+
+      
 
         comments = comments.map((comment) => {
             comment.author = comment.author_address // renaming
@@ -44,6 +55,7 @@ function Discussion({ url }) {
                 content: newCommentContent,
                 author_address: "0x1234567890", //TODO: get author address from MM
             })
+
             console.log("posted comment", response.data)
 
             // update Discussion's state
