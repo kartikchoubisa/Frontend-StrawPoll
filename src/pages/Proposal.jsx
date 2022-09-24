@@ -121,6 +121,8 @@ function Proposal({ url }) {
                 </div>
             </div>
 
+            <div class="solid"></div>
+            
             <div className="proposalDiscussion">
                 <Discussion url={url} />
             </div>
