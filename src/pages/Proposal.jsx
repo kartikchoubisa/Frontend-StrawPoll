@@ -113,7 +113,7 @@ function Proposal({ url }) {
             </div>
 
             <div className="proposalDiscussion">
-                <Discussion />
+                <Discussion url={url} />
             </div>
 
             {/* <div>uri: {proposalDetails.uri}</div>
@@ -123,7 +123,6 @@ function Proposal({ url }) {
                 <div>downvotes: {proposalDetails.downVotes}</div>
                 <div>markdown: {proposalDetails.markDownData}</div> */}
 
-            <Discussion url={url} />
         </div>
     )
 }
