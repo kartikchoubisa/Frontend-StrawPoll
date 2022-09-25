@@ -102,9 +102,10 @@ function Discussion({ proposalUrl }) {
             </form>
 
             {comments
-                .map(({ author, content, likes, dislikes, replies }) => (
+                .map(({ author, content, likes, dislikes, replies }, id) => (
                     <Comment
                         //TODO: get this from url
+                        key = {id}
                         discussion_url="www.proposal1.com"
                         content={content}
                         author={author}
