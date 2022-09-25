@@ -5,7 +5,7 @@
     flex-direction: column;
     width: 216px;
     height: 162px;
-    background-color: #1e1e28;
+    /* background-color: #1e1e28; */
     color: white;
     padding-top: 20px;
     box-sizing: border-box;
@@ -17,7 +17,31 @@
 
     /* margin-right: 64px; */
     /* transition: all 0.2s ease-in-out; */
+    
+    transition: 0.2s;
+
+    /* 1 */
+    /* background-image: linear-gradient(to right,  #1e1e28 0%,  #1e1e28 40%, #847585  50%,  #1e1e28 60%, #1e1e28  100%); */
+    
+    
+    /* 2 */
+    /* background-color:hsla(0,0%,100%,1);
+    background-image:
+    radial-gradient(at 105% 105%, hsla(240,0%,0%,1) 0px, transparent 50%),
+    radial-gradient(at 3% 2%, #E5007A 0px, transparent 50%);
+    background-size: 400% auto ; */
+
+    /* 3,4,5.. */
+    background: linear-gradient(180.12deg, #e5007a -4.88%, #FFFFFF 27.66%, #FFFFFF 49.59%, #1E1E28 99.9%);
+
+    /* background: linear-gradient(180.12deg, #1E1E28 -4.88%, #FFFFFF 27.66%, #FFFFFF 49.59%, #1E1E28 99.9%); */
+
+    /* background: linear-gradient(180.12deg, #1E1E28 -4.88%, #FFFFFF 27.66%, #FFFFFF 49.59%, #E5007A 99.9%); */
+
+    background-size: auto 300% ;
+    
 }
+
 
 .titleContainer {
     font-size: 16px;
@@ -69,7 +93,13 @@
 }
 .dataCardContainer:hover > .extraContainer {
     height: 22%;
-
-    
-
 }
+
+.dataCardContainer:hover .viewMoreContainer {
+    color: white;
+}
+
+.dataCardContainer:hover {
+    background-position: 0 100%; /* change the direction of the change here */
+}
+
