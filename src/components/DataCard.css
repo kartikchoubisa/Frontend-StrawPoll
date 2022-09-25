@@ -34,9 +34,11 @@
     /* 3,4,5.. */
     background: linear-gradient(180.12deg, #e5007a -4.88%, #FFFFFF 27.66%, #FFFFFF 49.59%, #1E1E28 99.9%);
 
+    background: linear-gradient(180.12deg, #e5007a -4.88%, #FFFFFF 35.66%, #FFFFFF 49.59%, #1E1E28 99.9%);
+
     /* background: linear-gradient(180.12deg, #1E1E28 -4.88%, #FFFFFF 27.66%, #FFFFFF 49.59%, #1E1E28 99.9%); */
 
-    /* background: linear-gradient(180.12deg, #1E1E28 -4.88%, #FFFFFF 27.66%, #FFFFFF 49.59%, #E5007A 99.9%); */
+    /* background: linear-gradient(180.12deg, #1E1E28 -4.88%, #FFFFFF 26.66%, #FFFFFF 49.59%, #E5007A 99.9%); */
 
     background-size: auto 300% ;
     
