@@ -50,6 +50,7 @@ function Discussion({ proposalUrl }) {
             console.log(
                 `trying to post comment to discussion : ${discussionEndpoint}`
             )
+            
             const response = await axios.post(discussionEndpoint, {
                 content: newCommentContent,
                 author_address: "0x1234567890", //TODO: get author address from MM
@@ -57,6 +58,8 @@ function Discussion({ proposalUrl }) {
 
             console.log("posted comment", response.data)
 
+            // clear form
+            setNewCommentContent((prev) => "")
             getComments()
 
         } catch (error) {
@@ -86,6 +89,7 @@ function Discussion({ proposalUrl }) {
                             <input
                                 type="text"
                                 placeholder="Tell other's what you think"
+                                value={newCommentContent}
                                 onChange={(e) =>
                                     setNewCommentContent(e.target.value)
                                 }

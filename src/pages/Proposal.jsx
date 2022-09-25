@@ -48,7 +48,7 @@ function Proposal() {
         contractAddress: contractAddress,
         functionName: "proposalDetail",
         // update to use uri from component
-        params: { _uri: "xyz" },
+        params: { _uri: proposalUrl },
     })
 
     async function updateProposalDetailsFromContract() {
