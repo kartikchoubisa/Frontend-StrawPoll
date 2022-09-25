@@ -32,13 +32,15 @@
     background-size: 400% auto ; */
 
     /* 3,4,5.. */
-    background: linear-gradient(180.12deg, #e5007a -4.88%, #FFFFFF 27.66%, #FFFFFF 49.59%, #1E1E28 99.9%);
+    /* background: linear-gradient(180.12deg, #e5007a -4.88%, #FFFFFF 27.66%, #FFFFFF 49.59%, #1E1E28 99.9%); */
 
-    background: linear-gradient(180.12deg, #e5007a -4.88%, #FFFFFF 35.66%, #FFFFFF 49.59%, #1E1E28 99.9%);
+    /* background: linear-gradient(180.12deg, #e5007a -4.88%, #FFFFFF 35.66%, #FFFFFF 49.59%, #1E1E28 99.9%); */
 
-    /* background: linear-gradient(180.12deg, #1E1E28 -4.88%, #FFFFFF 27.66%, #FFFFFF 49.59%, #1E1E28 99.9%); */
+    /* background: linear-gradient(180.12deg, #1E1E28 -4.88%, #ffecf6 35.66%, #e5007a 40.59%, #1E1E28 99.9%); */
 
-    /* background: linear-gradient(180.12deg, #1E1E28 -4.88%, #FFFFFF 26.66%, #FFFFFF 49.59%, #E5007A 99.9%); */
+    /* background: linear-gradient(180.12deg, #1E1E28 -4.88%,  #e5007a 35.66%, #FFFFFF 40.59%, #1E1E28 99.9%); */
+
+    background: linear-gradient(180.12deg, #1E1E28 -4.88%, #1E1E28 26.66%, #FFFFFF 40.59%, #E5007A 99.9%);
 
     background-size: auto 300% ;
     
@@ -79,7 +81,7 @@
     box-sizing: border-box;
     padding-bottom: 15px;
     width: 100%;
-    color:#E5007A;
+    color:white;
 }
 
 .lineContainer {
