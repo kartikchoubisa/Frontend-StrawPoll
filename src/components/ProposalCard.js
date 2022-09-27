@@ -15,6 +15,7 @@ import ProfilePicture from "./ProfilePicture"
 function ProposalCard({ name, uri, proposer, upvote, downvote }) {
     const [like, setLike] = useState(upvote)
     const [dislike, setDislike] = useState(downvote)
+    const [comments, setComments] = useState(0)
     const contractAddress = contractAddressData.contractAddress
 
     const { runContractFunction: upVote } = useWeb3Contract({
@@ -115,7 +116,8 @@ function ProposalCard({ name, uri, proposer, upvote, downvote }) {
                         icon={faComment}
                         className="reactionContainer"
                     />
-                    <div>{15}</div>
+                    {/* TODO: get list of comments in a discussion and find len() */}
+                    <div>{0}</div>
                 </div>
             </div>
         </div>
